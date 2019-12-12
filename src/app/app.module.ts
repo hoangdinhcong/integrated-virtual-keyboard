@@ -9,7 +9,8 @@ import { FeatureAModule } from "./feature-a/feature-a.module";
 
 @NgModule({
   declarations: [AppComponent, ProcessLayoutComponent],
-  imports: [BrowserModule, AppRoutingModule, FeatureAModule, SharedModule],
+  imports: [
+    BrowserModule, AppRoutingModule, FeatureAModule, SharedModule],
   providers: [],
   bootstrap: [AppComponent]
 })

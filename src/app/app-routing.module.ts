@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule, PreloadAllModules } from "@angular/router";
 import { ProcessLayoutComponent } from "./process-layout/process-layout.component";
+import {NgRxMessageBusModule} from 'ngrx-message-bus';
 
 const routes: Routes = [
   //Main routes goes here
@@ -29,6 +30,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+    NgRxMessageBusModule,
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
   exports: [RouterModule]
