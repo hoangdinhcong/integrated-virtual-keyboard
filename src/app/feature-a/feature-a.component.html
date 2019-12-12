@@ -1,28 +1,22 @@
 <p>feature-a works!</p>
 
-<div class="row">
-  <div class="col">
-    <app-input [label]="'First Name'"></app-input>
+<div [formGroup]="myForm">
+  <div class="row">
+    <div class="col">
+      <input #firstName formControlName="firstName" (focus)="handleControlFocus('firstName')">
+    </div>
+    <div class="col">
+      <input #lastName formControlName="lastName" (focus)="handleControlFocus('lastName')">
+    </div>
+    <div class="col">
+      <input #age formControlName="age" (focus)="handleControlFocus('age')">
+    </div>
   </div>
-  <div class="col">
-    <app-input [label]="'Last Name'"></app-input>
-  </div>
-  <div class="col">
-    <app-input [label]="'Age'"></app-input>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col">
-    <app-input [label]="'Address'"></app-input>
+  <div class="row">
+    <div class="col">
+      <app-virtual-keyboard (keyPressedEvent)="handleKeyPress($event)"></app-virtual-keyboard>
+    </div>
   </div>
-  <div class="col">
-    <app-input [label]="'Nationality'"></app-input>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col">
-    <app-virtual-keyboard></app-virtual-keyboard>
-  </div>
 </div>

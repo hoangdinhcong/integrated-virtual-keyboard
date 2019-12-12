@@ -2,8 +2,8 @@ import {
   Component,
   OnInit,
   AfterViewInit,
-  ViewEncapsulation
-} from "@angular/core";
+  ViewEncapsulation, EventEmitter, Output
+} from '@angular/core';
 import Keyboard from "simple-keyboard";
 
 @Component({
@@ -20,7 +20,12 @@ export class VirtualKeyboardComponent implements OnInit, AfterViewInit {
   keyboard: Keyboard;
   // numpad: ["1 2 3", "4 5 6", "7 8 9", "{bksp} 0 {enter}"];
 
-  constructor() {}
+  @Output()
+  public keyPressedEvent: EventEmitter<string>;
+
+  constructor() {
+    this.keyPressedEvent = new EventEmitter<string>();
+  }
 
   ngOnInit() {}
 
@@ -48,6 +53,7 @@ export class VirtualKeyboardComponent implements OnInit, AfterViewInit {
 
   onKeyPress = (button: string) => {
     console.log("Button pressed", button);
+    this.keyPressedEvent.emit(button);
 
     /**
      * If you want to handle the shift and caps lock buttons
